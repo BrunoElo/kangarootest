@@ -87,6 +87,7 @@
 </div>
 <section class="result-section">
     <h2 class="result__title">Result</h2>
+    <div *ngIf="notify" class="result__notification"><span>Result saved successfully</span></div>
     <div class="result__box">
         <span class="result__answer" *ngIf="result">{{result[0]}}</span>
     </div>

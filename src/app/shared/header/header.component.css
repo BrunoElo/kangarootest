@@ -10,7 +10,7 @@
 }
 
 .header__title {
-  color: var(--white);
+  color: var(--silver-white);
 }
 
 .nav__list {
@@ -21,13 +21,13 @@
 .nav__link {
   margin-left: 20px;
   text-decoration: none;
-  color: var(--white);
+  color: var(--silver-white);
   font-weight: 500;
 }
 
 .active {
-  border-top: 2px solid var(--white);
-  border-bottom: 2px solid var(--white);
+  border-top: 2px solid var(--silver-white);
+  border-bottom: 2px solid var(--silver-white);
 }
 
 @media screen and (min-width: 700px) {

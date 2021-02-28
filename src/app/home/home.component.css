@@ -32,10 +32,6 @@
   box-shadow: 1px 1px 10px rgba(177, 163, 163, 0.336);
 }
 
-/* .form__input:focus {
-  border: 1px solid #afb0e3;
-} */
-
 .form__button {
   align-self: center;
   padding: 12px;
@@ -44,7 +40,7 @@
   font-size: 16px;
   font-weight: 600;
   border: none;
-  background-color: #afb0e3;
+  background-color: var(--lavender);
   color: white;
   box-shadow: 1px 1px 10px rgba(177, 163, 163, 0.336);
 }
@@ -58,6 +54,14 @@
 .result__title {
   margin-top: 24px;
   text-align: center;
+}
+
+.result__notification {
+  padding: 10px;
+  background-color: var(--sharp-green);
+  color: white;
+  font-size: 18px;
+  position: absolute;
 }
 
 .result__box {
@@ -79,6 +83,11 @@
 .form__input.ng-invalid.ng-untouched.ng-dirty,
 .form__input.ng-invalid.ng-touched.ng-dirty {
   border-right: 4px solid red;
+}
+
+.result-section {
+  position: relative;
+  margin-bottom: 50px;
 }
 
 @media screen and (min-width: 768px) {

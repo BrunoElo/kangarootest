@@ -1,3 +1,4 @@
+import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApiService } from '../services/api.service';
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
   model: Kangaroo = {};
   result: [string, number]; // Tuple to store result
   warn: boolean = false;
+  notify: boolean;
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {}
@@ -38,7 +40,14 @@ export class HomeComponent implements OnInit {
     };
 
     this.apiService.postTest(payload).subscribe(
-      (data) => {},
+      (data) => {
+        if (data !== null) {
+          this.notify = true;
+          setTimeout(() => {
+            this.notify = false;
+          }, 5000);
+        }
+      },
       (error) => {
         window.confirm(error);
       }
@@ -61,7 +70,7 @@ export class HomeComponent implements OnInit {
       this.warn = true;
       setTimeout(() => {
         this.warn = false;
-      }, 4000);
+      }, 5000);
       return ['NO', jumps];
     } else if (jumps > 0 && Number.isInteger(jumps)) {
       return ['YES', jumps];

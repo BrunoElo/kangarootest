@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://my-json-server.typicode.com/brunoelo/kangaroo',
+  apiUrl: 'https://my-json-server.typicode.com/BrunoElo/kangarootest',
 };

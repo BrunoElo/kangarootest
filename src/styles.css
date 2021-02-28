@@ -2,11 +2,13 @@
 
 :root {
   --orange: rgb(247, 111, 62);
-  --white: rgb(247, 244, 242);
+  --silver-white: rgb(247, 244, 242);
+  --lavender: #afb0e3;
+  --sharp-green: rgb(49 220 49);
 }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--white);
+  background-color: var(--silver-white);
 }

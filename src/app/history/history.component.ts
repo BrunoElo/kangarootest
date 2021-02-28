@@ -10,6 +10,7 @@ import { Test } from '../shared/models';
 export class HistoryComponent implements OnInit {
   tests: Test[] = [];
   trigger: number;
+  notify: boolean;
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -37,11 +38,15 @@ export class HistoryComponent implements OnInit {
   }
 
   deleteTest(id: number, index: number) {
-    if (
-      window.confirm(`Are you sure you want to delete this entry ${index + 1}`)
-    ) {
+    if (window.confirm(`Are you sure you want to delete entry ${index + 1}`)) {
       this.apiService.delete(id).subscribe(
         (data) => {
+          if (data) {
+            this.notify = true;
+            setTimeout(() => {
+              this.notify = false;
+            }, 5000);
+          }
           this.getAllTests();
         },
         (error) => {

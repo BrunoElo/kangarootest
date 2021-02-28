@@ -4,6 +4,7 @@
     <p>Entries on the table can be deleted by clicking on the row you want to delete.</p>
 </section>
 <section class="results-section">
+    <div *ngIf="notify" class="result__notification"><span>Result deleted successfully</span></div>
     <table class="result-table">
         <thead class="result-table__head-row">
             <th class="result-table__head-col serial-no"> S/N </th>

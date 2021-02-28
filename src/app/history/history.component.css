@@ -15,7 +15,7 @@ td {
 }
 
 th {
-  background-color: #afb0e3;
+  background-color: var(--lavender);
   color: white;
 }
 
@@ -79,6 +79,14 @@ tr:hover {
 
 .result {
   width: 15%;
+}
+
+.result__notification {
+  padding: 10px;
+  background-color: var(--sharp-green);
+  color: white;
+  font-size: 18px;
+  position: absolute;
 }
 
 @media screen and (min-width: 768px) {
