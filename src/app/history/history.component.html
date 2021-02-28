@@ -1,0 +1,29 @@
+<section class="info-section">
+    <h2 class="info-section__title">Results History</h2>
+    <p>Here is a table of results for previously executed tests</p>
+    <p>Entries on the table can be deleted by clicking on the row you want to delete.</p>
+</section>
+<section class="results-section">
+    <table class="result-table">
+        <thead class="result-table__head-row">
+            <th class="result-table__head-col serial-no"> S/N </th>
+            <th class="result-table__head-col date"> Date </th>
+            <th class="result-table__head-col field"> Field </th>
+            <th class="result-table__head-col result"> Result </th>
+            <th class="result-table__head-col ">No of Jumps</th>
+        </thead>
+        <tbody class="result-table__body">
+            <tr (click)=triggerDelete(test.id) class="result-table__body-row" *ngFor="let test of tests; let i = index">
+                <td class="result-table__body-col">{{i+1}}</td>
+                <td class="result-table__body-col">{{test.date | date:'medium'}}</td>
+                <td class="result-table__body-col">{{test.field}}</td>
+                <td class="result-table__body-col">{{test.result}}</td>
+                <td class="result-table__body-col jumps">{{test.jumps | number:'1.0-3'}} <div *ngIf="trigger===test.id"
+                        class="btn-wrapper">
+                        <button class="result-table__body-button" (click)="deleteTest(test.id,i)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>

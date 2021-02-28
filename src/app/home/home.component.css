@@ -1,0 +1,96 @@
+.info-section,
+.form-section,
+.result-section {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.info-section__title {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input {
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 14px;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(177, 163, 163, 0.336);
+}
+
+/* .form__input:focus {
+  border: 1px solid #afb0e3;
+} */
+
+.form__button {
+  align-self: center;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  background-color: #afb0e3;
+  color: white;
+  box-shadow: 1px 1px 10px rgba(177, 163, 163, 0.336);
+}
+
+.form__button:disabled {
+  background-color: rgb(219, 201, 201);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.result__title {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.result__box {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.result__answer {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+}
+
+.form__input.ng-valid {
+  border-right: 4px solid green;
+}
+
+.form__input.ng-invalid.ng-untouched.ng-dirty,
+.form__input.ng-invalid.ng-touched.ng-dirty {
+  border-right: 4px solid red;
+}
+
+@media screen and (min-width: 768px) {
+  .form__inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .form-control {
+    flex-grow: 1;
+    margin: 2%;
+    width: 200px;
+  }
+}

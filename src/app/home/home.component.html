@@ -1,0 +1,93 @@
+<section class="info-section">
+    <h2 class="info-section__title"> Welcome to the kangaroo test! </h2>
+    <article>You are choreographing a circus show with various animals. For one act, you are given two kangaroos on a
+        number line ready to jump in the positive direction (i.e, toward positive infinity). The first kangaroo starts
+        at location x<sub>1</sub> and moves at a rate of v<sub>1</sub> meters per jump. The second kangaroo starts at
+        location x<sub>2</sub> and moves at a rate of v<sub>2</sub> meters per jump. You have to figure out a way to get
+        both kangaroos at the same location as part of the show.<br><br> Complete the function kangaroo which takes
+        starting location and speed of both kangaroos as input, and return <em><b>Yes</b></em> or <em><b>No</b></em>
+        appropriately. Can you determine if the kangaroos will ever land at the same location at the same time? The two
+        kangaroos must land at the same location after making the same number of jumps.<br></article>
+    <h4>Input Format</h4>
+    <p>A single line of four space-separated integers denoting the respective values of x<sub>1</sub>, v<sub>1</sub>,
+        x<sub>2</sub>, and v<sub>2</sub>.</p>
+    <h4>Constraints</h4>
+    <ul>
+        <li>0 &le; x<sub>1</sub>
+            < x<sub>2</sub> &le; 10000
+        </li>
+        <li>1 &le; v<sub>1</sub> &le; 10000</li>
+        <li>1 &le; v<sub>2</sub> &le; 10000</li>
+    </ul>
+    <hr>
+    <p>Please provide the required values in the corresponding input fields</p>
+    <p><b>Note:</b> The values should be non-negative integers</p>
+</section>
+<section class="form-section">
+    <form class="form" #kangaForm="ngForm" (ngSubmit)='submitKangaForm(kangaForm)'>
+        <div class="form__inputs">
+            <div class="form-control">
+                <input class="form__input" [appAcceptedRange]="[0,10000]" id="kanga1Start_id" type="number" min="0"
+                    max="10000" name="kanga1Start" required placeholder="First kangaroo start location"
+                    [(ngModel)]='model.kanga1Start' #kanga1StartModel='ngModel'>
+                <div *ngIf="kanga1StartModel.value > 10000 || kanga1StartModel.value < 0">
+                    <span>Please input a number between 0 and 10000 inclusive</span>
+                </div>
+                <div *ngIf="kanga1StartModel.invalid && kanga1StartModel.touched">
+                    <div *ngIf="kanga1StartModel.errors?.required">
+                        <span>This field is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-control">
+                <input [appAcceptedRange]="[1,10000]" class="form__input" id="kanga1Speed_id" type="number" min="1"
+                    max="10000" name="kanga1Speed" required placeholder="First kangaroo speed"
+                    [(ngModel)]='model.kanga1Speed' #kanga1SpeedModel='ngModel'>
+                <div *ngIf="kanga1SpeedModel.value > 10000 || kanga1SpeedModel.value < 1 && kanga1SpeedModel.dirty">
+                    <span>Please input a number between 1 and 10000 inclusive</span>
+                </div>
+                <div *ngIf="kanga1SpeedModel.invalid && kanga1SpeedModel.touched">
+                    <div *ngIf="kanga1SpeedModel.errors?.required">
+                        <span>This field is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-control">
+                <input class="form__input" [appAcceptedRange]="[0,10000]" id="kanga2Start_id" type="number" min="0"
+                    max="10000" name="kanga2Start" required placeholder="Second kangaroo start location"
+                    [(ngModel)]='model.kanga2Start' #kanga2StartModel='ngModel'>
+                <div *ngIf="kanga2StartModel.value > 10000 || kanga2StartModel.value < 0">
+                    <span>Please input a number between 0 and 10000 inclusive</span>
+                </div>
+                <div *ngIf="kanga2StartModel.invalid && kanga2StartModel.touched">
+                    <div *ngIf="kanga2StartModel.errors?.required">
+                        <span>This field is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-control">
+                <input class="form__input" [appAcceptedRange]="[1,10000]" id="kanga2Speed_id" type="number" min="1"
+                    max="10000" name="kanga2Speed" required placeholder="Second kangaroo speed"
+                    [(ngModel)]='model.kanga2Speed' #kanga2SpeedModel='ngModel'>
+                <div *ngIf="kanga2SpeedModel.value > 10000 || kanga2SpeedModel.value < 1 && kanga2SpeedModel.dirty">
+                    <span>Please input a number between 1 and 10000 inclusive</span>
+                </div>
+                <div *ngIf="kanga2SpeedModel.invalid && kanga2SpeedModel.touched">
+                    <div *ngIf="kanga2SpeedModel.errors?.required">
+                        <span>This field is required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="form__button" type="submit" [disabled]='!kangaForm.valid '>Show Result</button>
+    </form>
+</section>
+<div *ngIf='warn'>
+    <p>Kangaroo 2 start point should be greater than Kangaroo 1 start point</p>
+</div>
+<section class="result-section">
+    <h2 class="result__title">Result</h2>
+    <div class="result__box">
+        <span class="result__answer" *ngIf="result">{{result[0]}}</span>
+    </div>
+</section>
