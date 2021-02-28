@@ -1,6 +1,6 @@
 # Kangaroo
 
-A solution to a hackerank question made into a web application built with angular.
+A solution to a hackerank question made into a web application built with angular.  
 A [db.json]('https://github.com/BrunoElo/kangarootest/blob/main/db.json') file in the `main` branch is the mock database used or this project.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
