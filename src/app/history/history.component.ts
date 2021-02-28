@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { DataService } from '../services/data.service';
 import { Test } from '../shared/models';
 
 @Component({
@@ -11,7 +12,10 @@ export class HistoryComponent implements OnInit {
   tests: Test[] = [];
   trigger: number;
   notify: boolean;
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
     this.getAllTests();
@@ -21,6 +25,12 @@ export class HistoryComponent implements OnInit {
     this.apiService.getTests().subscribe(
       (data) => {
         this.tests = data.body;
+        // Simulate data retrieval when app is hosted
+        this.dataService.currentTest.subscribe((data) => {
+          if (data) {
+            this.tests.push(...data);
+          }
+        });
       },
       (error) => {
         window.confirm(error);
